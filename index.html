@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Время Ремонта</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #000;
+      color: #ffc107;
+      text-align: center;
+    }
+    header {
+      padding: 30px 20px;
+    }
+    header img {
+      width: 120px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+    h1 {
+      margin: 10px 0;
+      color: #ffc107;
+    }
+    h2 {
+      color: #fff;
+      margin-top: 10px;
+    }
+    section {
+      padding: 40px 20px;
+    }
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #ffc107;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #111;
+      color: #888;
+      padding: 20px;
+    }
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+    }
+    .whatsapp-float img {
+      width: 60px;
+      height: 60px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <img src="logo.png" alt="Логотип Время Ремонта">
+      <h1>ВРЕМЯ РЕМОНТА</h1>
+    </div>
+    <h2>Ремонт и обслуживание бытовой и промышленной техники</h2>
+  </header>
+
+  <section>
+    <h2>О нас</h2>
+    <p>Мы — сервисный центр в Талдыкоргане, специализирующийся на ремонте и обслуживании бытовой и промышленной техники. Профессиональный подход, честные цены и быстрый результат — наш стандарт работы.</p>
+  </section>
+
+  <section>
+    <h2>Наши услуги</h2>
+    <ul style="list-style: none; padding: 0;">
+      <li>— Ремонт стиральных машин</li>
+      <li>— Обслуживание холодильников</li>
+      <li>— Ремонт плит, микроволновок, пылесосов</li>
+      <li>— Ремонт промышленной техники</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Оставить заявку</h2>
+    <form id="repair-form" onsubmit="sendWhatsApp(); return false;">
+      <input type="text" id="name" placeholder="Ваше имя" required>
+      <input type="tel" id="phone" placeholder="Телефон" required>
+      <textarea id="message" placeholder="Что нужно отремонтировать?" rows="4" required></textarea>
+      <button type="submit">Отправить</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Контакты: 8 (707) 030-60-96, 8 (777) 922-00-11</p>
+    <p>Талдыкорган, ул. Акын-Сара 170</p>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/77779220011" target="_blank">
+    <img src="whatsapp.png" alt="Связаться в WhatsApp">
+  </a>
+
+  <script>
+    function sendWhatsApp() {
+      var name = document.getElementById("name").value;
+      var phone = document.getElementById("phone").value;
+      var message = document.getElementById("message").value;
+
+      var text = encodeURIComponent("Новая заявка:\nИмя: " + name + "\nТелефон: " + phone + "\nСообщение: " + message);
+      window.open("https://wa.me/77779220011?text=" + text, "_blank");
+    }
+  </script>
+</body>
+</html>
