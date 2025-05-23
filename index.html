@@ -1,31 +1,33 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!DOCTYPE html><html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Время Ремонта</title>
   <style>
     body {
       margin: 0;
-      font-family: sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #000;
+      background-image: url('https://www.transparenttextures.com/patterns/hexellence.png');
       color: #ffc107;
       text-align: center;
-      background-image: radial-gradient(#222 1px, transparent 1px);
-      background-size: 40px 40px;
+      position: relative;
     }
     header {
       padding: 30px 20px;
     }
     header img {
-      width: 120px;
+      width: 160px;
       height: auto;
       margin-bottom: 10px;
+      filter: drop-shadow(0 0 10px #ffc107);
+    }
+    h1, h2, p, li {
+      text-shadow: 1px 1px 3px #000;
     }
     h1 {
       margin: 10px 0;
       color: #ffc107;
-      letter-spacing: 2px;
     }
     h2 {
       color: #fff;
@@ -45,6 +47,7 @@
       margin: 10px 0;
       border: none;
       border-radius: 5px;
+      box-shadow: 0 0 10px #ffc10750;
     }
     button {
       background-color: #ffc107;
@@ -54,11 +57,13 @@
       border-radius: 5px;
       font-weight: bold;
       cursor: pointer;
+      box-shadow: 0 0 10px #ffc107;
     }
     footer {
       background-color: #111;
       color: #888;
       padding: 20px;
+      position: relative;
     }
     .whatsapp-float {
       position: fixed;
@@ -70,41 +75,51 @@
       width: 60px;
       height: 60px;
     }
-    ul {
-      list-style: none;
-      padding: 0;
+    .techno-corner {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      opacity: 0.2;
+      animation: spin 20s linear infinite;
     }
-    ul li::before {
-      content: "— ";
+    .top-left { top: 0; left: 0; }
+    .top-right { top: 0; right: 0; }
+    .bottom-left { bottom: 0; left: 0; }
+    .bottom-right { bottom: 0; right: 0; }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .contact a {
       color: #ffc107;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <header>
+  <!-- Шестеренки -->
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Gear_icon.png" class="techno-corner top-left" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Gear_icon.png" class="techno-corner top-right" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Gear_icon.png" class="techno-corner bottom-left" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Gear_icon.png" class="techno-corner bottom-right" />  <header>
     <div style="display: flex; flex-direction: column; align-items: center;">
       <img src="logo.png" alt="Логотип Время Ремонта">
       <h1>ВРЕМЯ РЕМОНТА</h1>
     </div>
     <h2>Ремонт и обслуживание бытовой и промышленной техники</h2>
-  </header>
-
-  <section>
+  </header>  <section>
     <h2>О нас</h2>
-    <p>Мы — сервисный центр в Талдыкоргане, специализирующийся на ремонте и обслуживании бытовой и промышленной техники. Профессиональный подход, честные цены и быстрый результат — наш стандарт работы.</p>
-  </section>
-
-  <section>
+    <p>Наш сервисный центр "Время Ремонта" работает в Талдыкоргане более 10 лет. Мы специализируемся на ремонте стиральных машин, холодильников, микроволновок, плит, промышленной техники и многого другого. Каждый клиент получает гарантию до 1 года, диагностика бесплатна при ремонте, используем только оригинальные комплектующие и профессиональный инструмент. Работаем быстро, честно и качественно.</p>
+  </section>  <section>
     <h2>Наши услуги</h2>
-    <ul>
-      <li>Ремонт стиральных машин</li>
-      <li>Обслуживание холодильников</li>
-      <li>Ремонт плит, микроволновок, пылесосов</li>
-      <li>Ремонт промышленной техники</li>
+    <ul style="list-style: none; padding: 0;">
+      <li>— Ремонт стиральных машин</li>
+      <li>— Обслуживание холодильников</li>
+      <li>— Ремонт плит, микроволновок, пылесосов</li>
+      <li>— Ремонт промышленной техники</li>
+      <li>— Гарантия до 12 месяцев на все виды работ</li>
     </ul>
-  </section>
-
-  <section>
+  </section>  <section>
     <h2>Оставить заявку</h2>
     <form id="repair-form" onsubmit="sendWhatsApp(); return false;">
       <input type="text" id="name" placeholder="Ваше имя" required>
@@ -112,39 +127,24 @@
       <textarea id="message" placeholder="Что нужно отремонтировать?" rows="4" required></textarea>
       <button type="submit">Отправить</button>
     </form>
-  </section>
-
-  <!-- Карта -->
-  <section>
-    <h2>Мы на карте</h2>
-    <div style="width:100%; max-width:600px; margin:0 auto;">
-      <iframe 
-        src="https://yandex.ru/map-widget/v1/?um=constructor%3A2059d5ce256da838a92da90a6fa3e2e7cf34cdd499fc90c92b39fc88cb6e9f7a&amp;source=constructor" 
-        width="100%" 
-        height="400" 
-        frameborder="0">
-      </iframe>
+  </section>  <!-- Карта Яндекс -->  <section>
+    <h2>Как нас найти</h2>
+    <div style="display: flex; justify-content: center;">
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A3a1f220d2cd6b391cb77ec1f2e8f1f78c265fc6043f69f16d5fc83dbd35b208f&amp;source=constructor" width="100%" height="400" frameborder="0"></iframe>
     </div>
-  </section>
-
-  <footer>
-    <p>Контакты: <a href="tel:+77070306096" style="color:#ffc107;">8 (707) 030-60-96</a>, <a href="tel:+77779220011" style="color:#ffc107;">8 (777) 922-00-11</a></p>
+  </section>  <footer class="contact">
+    <p>Контакты: <a href="tel:+77070306096">8 (707) 030-60-96</a>, <a href="tel:+77779220011">8 (777) 922-00-11</a></p>
     <p>Талдыкорган, ул. Акын-Сара 170</p>
-  </footer>
-
-  <!-- Иконка WhatsApp -->
-  <a class="whatsapp-float" href="https://wa.me/77779220011" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp">
-  </a>
-
-  <script>
+  </footer>  <!-- Иконка WhatsApp -->  <a class="whatsapp-float" href="https://wa.me/77779220011" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>  <script>
     function sendWhatsApp() {
       var name = document.getElementById("name").value;
       var phone = document.getElementById("phone").value;
       var message = document.getElementById("message").value;
+
       var text = encodeURIComponent("Новая заявка:\nИмя: " + name + "\nТелефон: " + phone + "\nСообщение: " + message);
       window.open("https://wa.me/77779220011?text=" + text, "_blank");
     }
-  </script>
-</body>
+  </script></body>
 </html>
